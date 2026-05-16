@@ -141,5 +141,42 @@ footer{background:#050505;padding:3rem 5%;text-align:center;color:var(--muted);}
   <p style="margin-top:0.8rem;">info@ironzone.com.tr | +90 212 555 0200 | İstanbul</p>
   <p style="margin-top:1rem;font-size:0.8rem;">© 2025 IronZone Fitness. Tüm hakları saklıdır.</p>
 </footer>
-</body>
+
+<section style="padding:5rem 5%;background:rgba(20,20,20,0.5);">
+  <div style="color:#f97316;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:0.6rem;">Hesap Makinesi</div>
+  <div style="font-size:2rem;font-weight:900;text-transform:uppercase;margin-bottom:2.5rem;">BMI Hesapla</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:900px;">
+    <div style="background:#141414;border-radius:1rem;padding:2rem;border:1px solid rgba(249,115,22,0.15);">
+      <div style="margin-bottom:1rem;"><label style="display:block;font-size:0.72rem;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Boy (cm)</label><input id="bmiH" type="number" value="175" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(249,115,22,0.2);border-radius:0.4rem;padding:0.75rem 1rem;color:#f1f5f9;font-size:1rem;outline:none;"></div>
+      <div style="margin-bottom:1.5rem;"><label style="display:block;font-size:0.72rem;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Kilo (kg)</label><input id="bmiW" type="number" value="75" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(249,115,22,0.2);border-radius:0.4rem;padding:0.75rem 1rem;color:#f1f5f9;font-size:1rem;outline:none;"></div>
+      <button onclick="calcBMI()" style="width:100%;background:#f97316;color:#fff;border:none;padding:0.9rem;border-radius:0.4rem;font-weight:700;font-size:1rem;cursor:pointer;">Hesapla</button>
+    </div>
+    <div id="bmiResult" style="background:#141414;border-radius:1rem;padding:2rem;border:1px solid rgba(249,115,22,0.15);text-align:center;">
+      <div style="font-size:0.85rem;color:#64748b;margin-bottom:1rem;">BMI Değeriniz</div>
+      <div id="bmiNum" style="font-size:4rem;font-weight:900;color:#f97316;">--</div>
+      <div id="bmiCat" style="font-size:1.1rem;font-weight:700;margin:0.8rem 0;color:#f1f5f9;">Değer girin</div>
+      <div id="bmiNote" style="font-size:0.82rem;color:#64748b;line-height:1.6;margin-top:0.8rem;"></div>
+    </div>
+  </div>
+</section>
+<script>
+function calcBMI(){
+  const h=+document.getElementById('bmiH').value/100;
+  const w=+document.getElementById('bmiW').value;
+  if(!h||!w)return;
+  const bmi=(w/(h*h)).toFixed(1);
+  document.getElementById('bmiNum').textContent=bmi;
+  let cat,note,col;
+  if(bmi<18.5){cat='Zayıf';note='Kilonuzu artırmanız önerilir. Beslenme uzmanımıza danışın.';col='#60a5fa';}
+  else if(bmi<25){cat='Normal';note='Harika! Sağlıklı kilo aralığındasınız. Egzersiz rutininizi sürdürün.';col='#4ade80';}
+  else if(bmi<30){cat='Fazla Kilolu';note='Hedefli antrenman ve beslenme planı ile ideal kilonuza ulaşabilirsiniz.';col='#f59e0b';}
+  else{cat='Obez';note='Uzman eğitmenimizle kişisel program oluşturmanızı öneririz.';col='#ef4444';}
+  document.getElementById('bmiCat').textContent=cat;
+  document.getElementById('bmiCat').style.color=col;
+  document.getElementById('bmiNum').style.color=col;
+  document.getElementById('bmiNote').textContent=note;
+}
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+</script></body>
 </html>

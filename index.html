@@ -3,180 +3,1757 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IronZone Fitness - Spor Salonu</title>
+<meta name="description" content="IRONZONE - Endustriyel spor salonu. Gucunu bul, sinirlarini zorla, rekorlarini kir.">
+<title>IRONZONE - Gucunu Bul. Sinirlarini Zorla.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{--bg:#0a0a0a;--card:#141414;--accent:#f97316;--text:#f1f5f9;--muted:#64748b;}
-body{font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
-nav{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.97);backdrop-filter:blur(10px);padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;border-bottom:1px solid rgba(249,115,22,0.2);}
-.logo{font-size:1.5rem;font-weight:900;color:var(--accent);letter-spacing:2px;}
-.nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;font-size:0.9rem;}
-.nav-links a:hover{color:var(--accent);}
-.btn-orange{background:var(--accent);color:white;padding:0.7rem 1.8rem;border:none;border-radius:0.4rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;}
-.btn-orange:hover{background:#ea6c0a;}
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:8rem 5% 4rem;}
-.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover;opacity:0.25;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.95) 50%,transparent);}
-.hero-content{position:relative;max-width:600px;}
-.hero-badge{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid rgba(249,115,22,0.5);color:var(--accent);padding:0.4rem 1rem;border-radius:2rem;font-size:0.85rem;margin-bottom:1.5rem;}
-.hero h1{font-size:3.5rem;font-weight:900;line-height:1.1;margin-bottom:1.5rem;text-transform:uppercase;}
-.hero h1 span{color:var(--accent);}
-.hero p{color:var(--muted);font-size:1.05rem;line-height:1.8;margin-bottom:2.5rem;}
-.stats{padding:3rem 5%;background:var(--card);display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;border-top:2px solid rgba(249,115,22,0.3);}
-.stat-num{font-size:2.8rem;font-weight:900;color:var(--accent);}
-.stat-label{color:var(--muted);font-size:0.85rem;margin-top:0.4rem;}
-.section{padding:5rem 5%;}
-.section-tag{color:var(--accent);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:0.8rem;}
-.section-title{font-size:2.5rem;font-weight:900;margin-bottom:1rem;text-transform:uppercase;}
-.section-sub{color:var(--muted);line-height:1.7;max-width:500px;}
-.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
-.plan-card{background:var(--card);border-radius:1rem;padding:2.5rem;border:1px solid rgba(249,115,22,0.1);transition:all 0.3s;position:relative;}
-.plan-card.featured{border-color:var(--accent);background:linear-gradient(135deg,rgba(249,115,22,0.1),rgba(10,10,10,0.8));}
-.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:white;padding:0.3rem 1.2rem;border-radius:2rem;font-size:0.75rem;font-weight:700;}
-.plan-name{font-size:1.3rem;font-weight:800;margin-bottom:1rem;}
-.plan-price{font-size:2.5rem;font-weight:900;color:var(--accent);}
-.plan-price span{font-size:1rem;color:var(--muted);font-weight:400;}
-.plan-features{margin:1.5rem 0;list-style:none;}
-.plan-features li{padding:0.5rem 0;color:var(--muted);border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.9rem;}
-.plan-features li::before{content:"+ ";color:var(--accent);}
-.classes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
-.class-card{position:relative;border-radius:1rem;overflow:hidden;height:250px;}
-.class-img{width:100%;height:100%;object-fit:cover;}
-.class-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);}
-.class-info{position:absolute;bottom:1.5rem;left:1.5rem;}
-.class-name{font-size:1.1rem;font-weight:800;}
-.class-time{color:var(--accent);font-size:0.85rem;}
-.trainers{padding:5rem 5%;background:var(--card);}
-.trainer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
-.trainer-card{border-radius:1rem;overflow:hidden;position:relative;}
-.trainer-img{width:100%;height:280px;object-fit:cover;object-position:top;}
-.trainer-info{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);padding:1.5rem 1rem 1rem;}
-.trainer-name{font-weight:800;}
-.trainer-spec{color:var(--accent);font-size:0.8rem;}
-footer{background:#050505;padding:3rem 5%;text-align:center;color:var(--muted);}
-.footer-logo{font-size:2rem;font-weight:900;color:var(--accent);margin-bottom:0.8rem;letter-spacing:2px;}
-@media(max-width:768px){.hero h1{font-size:2.2rem;}.stats,.plans-grid,.classes-grid,.trainer-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+/* ============================================================
+   IRONZONE - Tek dosya, tum icerik inline
+   Renkler, tipografi, animasyonlar
+   ============================================================ */
+:root{
+  --bg:#0a0a0a;
+  --bg-2:#111111;
+  --bg-3:#1a1a1a;
+  --card:#141414;
+  --card-2:#181818;
+  --accent:#e63946;
+  --accent-2:#ff6b35;
+  --text:#f1faee;
+  --muted:#a8a8a8;
+  --muted-2:#64748b;
+  --line:rgba(255,255,255,0.08);
+  --line-2:rgba(230,57,70,0.35);
+  --shadow:0 10px 30px rgba(0,0,0,0.6);
+  --shadow-2:0 20px 50px rgba(230,57,70,0.25);
+  --font-head:'Oswald', 'Arial Narrow', sans-serif;
+  --font-body:'Roboto', 'Segoe UI', sans-serif;
+  --ease:cubic-bezier(0.22, 1, 0.36, 1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4,h5{font-family:var(--font-head);font-weight:700;line-height:1.05;letter-spacing:0.5px;text-transform:uppercase}
+p{color:var(--muted)}
+
+/* ===== NAVBAR ===== */
+.nav{
+  position:fixed;top:0;left:0;width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 5%;
+  z-index:999;
+  background:rgba(10,10,10,0.55);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:padding 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.nav.scrolled{
+  padding:0.7rem 5%;
+  background:rgba(10,10,10,0.92);
+  border-bottom:1px solid var(--line-2);
+}
+.logo{
+  font-family:var(--font-head);
+  font-size:1.8rem;font-weight:700;
+  color:var(--accent);
+  letter-spacing:3px;
+  position:relative;
+  display:inline-flex;align-items:center;gap:0.4rem;
+}
+.logo::after{
+  content:"";width:8px;height:8px;background:var(--accent-2);
+  border-radius:50%;
+  box-shadow:0 0 12px var(--accent-2);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+.nav-links{display:flex;gap:2.2rem;align-items:center}
+.nav-links a{
+  font-family:var(--font-head);
+  font-size:0.95rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--text);
+  position:relative;padding:0.4rem 0;
+  transition:color 0.25s var(--ease);
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:0;height:2px;background:var(--accent);
+  transition:width 0.3s var(--ease);
+}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;
+  padding:0.7rem 1.4rem;
+  font-family:var(--font-head);
+  font-weight:600;
+  text-transform:uppercase;letter-spacing:1.5px;
+  font-size:0.85rem;
+  border-radius:2px;
+  transition:transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  position:relative;overflow:hidden;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+.burger{
+  display:none;flex-direction:column;gap:5px;
+  width:30px;cursor:pointer;z-index:1001;
+}
+.burger span{
+  width:100%;height:2px;background:var(--text);
+  transition:transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--accent)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--accent)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:8rem 5% 5rem;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=85') center/cover no-repeat;
+  filter:grayscale(35%) contrast(1.1) brightness(0.55);
+  z-index:0;
+  animation:slowZoom 18s ease-in-out infinite alternate;
+}
+@keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.12)}}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(120deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 55%, rgba(230,57,70,0.25) 100%),
+    linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.95) 100%);
+}
+.hero-stripe{
+  position:absolute;left:0;top:0;height:100%;width:6px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2),var(--accent));
+  z-index:3;
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1100px;
+  width:100%;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.7rem;
+  font-family:var(--font-head);
+  font-size:0.95rem;font-weight:500;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:4px;
+  padding:0.5rem 1rem;
+  border:1px solid var(--line-2);
+  background:rgba(230,57,70,0.08);
+  margin-bottom:1.8rem;
+  animation:slideRight 0.9s var(--ease) both;
+}
+.hero-eyebrow::before{
+  content:"";width:30px;height:2px;background:var(--accent);
+}
+.hero h1{
+  font-size:clamp(3.2rem, 11vw, 9.5rem);
+  font-weight:700;line-height:0.92;
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+  animation:slideUp 1s 0.15s var(--ease) both;
+}
+.hero h1 .stroke{
+  -webkit-text-stroke:2px var(--accent);
+  color:transparent;
+  display:inline-block;
+}
+.hero h1 .accent{color:var(--accent);text-shadow:0 0 30px rgba(230,57,70,0.4)}
+.hero h1 .accent-2{color:var(--accent-2);text-shadow:0 0 30px rgba(255,107,53,0.4)}
+.hero-sub{
+  font-size:clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight:300;
+  color:rgba(241,250,238,0.85);
+  max-width:600px;
+  margin-bottom:2.6rem;
+  line-height:1.6;
+  animation:slideUp 1s 0.3s var(--ease) both;
+}
+.hero-sub strong{color:var(--accent);font-weight:500}
+.hero-buttons{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  animation:slideUp 1s 0.45s var(--ease) both;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:0.7rem;
+  font-family:var(--font-head);
+  font-weight:600;font-size:1rem;
+  text-transform:uppercase;letter-spacing:2px;
+  padding:1.05rem 2.2rem;
+  border-radius:2px;
+  transition:transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+  position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.btn::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+  transform:translateX(-100%);
+  transition:transform 0.55s var(--ease);
+}
+.btn:hover::before{transform:translateX(100%)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),#c1121f);
+  color:#fff;
+  box-shadow:0 8px 25px rgba(230,57,70,0.35);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(230,57,70,0.55)}
+.btn-outline{
+  background:transparent;
+  color:var(--text);
+  border:2px solid var(--text);
+}
+.btn-outline:hover{
+  background:var(--text);
+  color:var(--bg);
+  transform:translateY(-3px);
+}
+.hero-meta{
+  position:absolute;right:5%;bottom:3rem;z-index:2;
+  display:flex;flex-direction:column;gap:0.4rem;
+  text-align:right;
+  animation:slideUp 1s 0.6s var(--ease) both;
+}
+.hero-meta span{
+  font-family:var(--font-head);
+  font-size:0.85rem;letter-spacing:3px;
+  color:rgba(241,250,238,0.55);
+  text-transform:uppercase;
+}
+.hero-meta strong{
+  color:var(--accent-2);font-size:1.2rem;
+}
+.scroll-cue{
+  position:absolute;left:50%;bottom:2rem;
+  transform:translateX(-50%);
+  z-index:2;
+  font-family:var(--font-head);
+  font-size:0.75rem;letter-spacing:4px;
+  text-transform:uppercase;
+  color:rgba(241,250,238,0.45);
+  display:flex;flex-direction:column;align-items:center;gap:0.6rem;
+  animation:fadeIn 1.4s 0.8s var(--ease) both;
+}
+.scroll-cue::after{
+  content:"";width:2px;height:38px;background:linear-gradient(180deg,var(--accent),transparent);
+  animation:scrollLine 1.6s ease-in-out infinite;
+}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ===== STATS STRIP ===== */
+.stats{
+  position:relative;
+  background:linear-gradient(90deg,var(--accent) 0%, #c1121f 50%, var(--accent-2) 100%);
+  padding:3.2rem 5%;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+  position:relative;overflow:hidden;
+}
+.stats::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 18px, rgba(0,0,0,0.05) 18px 19px),
+    radial-gradient(circle at 20% 50%, rgba(0,0,0,0.15), transparent 60%);
+  pointer-events:none;
+}
+.stat{text-align:center;position:relative;z-index:1}
+.stat-num{
+  font-family:var(--font-head);
+  font-size:clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight:700;line-height:1;
+  color:#fff;
+  display:block;
+  text-shadow:0 4px 18px rgba(0,0,0,0.3);
+}
+.stat-label{
+  display:block;
+  font-family:var(--font-head);
+  font-size:0.95rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:2px;
+  color:rgba(255,255,255,0.9);
+  margin-top:0.5rem;
+}
+.stat-divider{
+  position:absolute;right:0;top:20%;height:60%;width:1px;
+  background:rgba(255,255,255,0.3);
+}
+.stat:last-child .stat-divider{display:none}
+
+/* ===== SECTION BASE ===== */
+.section{padding:6rem 5%;position:relative}
+.container{max-width:1300px;margin:0 auto}
+.section-tag{
+  display:inline-block;
+  color:var(--accent);
+  font-family:var(--font-head);
+  font-size:0.85rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:4px;
+  margin-bottom:0.8rem;
+  position:relative;padding-left:2.4rem;
+}
+.section-tag::before{
+  content:"";position:absolute;left:0;top:50%;
+  width:2rem;height:2px;background:var(--accent);
+}
+.section-title{
+  font-size:clamp(2rem, 5vw, 3.8rem);
+  font-weight:700;line-height:1;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+  position:relative;
+}
+.section-title .accent{color:var(--accent)}
+.section-sub{
+  font-size:1.05rem;color:var(--muted);
+  max-width:640px;line-height:1.7;
+  margin-bottom:3rem;
+}
+.section-head{margin-bottom:3.5rem;max-width:760px}
+
+/* ===== PROGRAM / CLASSES ===== */
+.classes-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.6rem;
+}
+.class-card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-top:3px solid var(--accent);
+  padding:2.2rem 1.8rem 1.8rem;
+  transition:transform 0.4s var(--ease), border-color 0.4s var(--ease), background 0.4s var(--ease);
+  overflow:hidden;
+}
+.class-card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(230,57,70,0.08) 0%, transparent 60%);
+  opacity:0;transition:opacity 0.4s var(--ease);
+  pointer-events:none;
+}
+.class-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--accent);
+  background:var(--card-2);
+}
+.class-card:hover::before{opacity:1}
+.class-icon{
+  width:64px;height:64px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  border-radius:2px;
+  margin-bottom:1.4rem;
+  color:#fff;
+  transition:transform 0.4s var(--ease);
+  box-shadow:0 8px 20px rgba(230,57,70,0.3);
+}
+.class-card:hover .class-icon{transform:rotate(-8deg) scale(1.08)}
+.class-icon svg{width:34px;height:34px;stroke-width:2.2}
+.class-title{
+  font-size:1.4rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:0.6rem;
+  color:var(--text);
+}
+.class-desc{
+  font-size:0.92rem;line-height:1.6;
+  color:var(--muted);
+  margin-bottom:1.4rem;
+}
+.class-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:1rem;
+  border-top:1px solid var(--line);
+}
+.class-time{
+  font-family:var(--font-head);
+  font-size:0.85rem;font-weight:500;
+  color:var(--accent-2);
+  letter-spacing:1.5px;text-transform:uppercase;
+}
+.class-badge{
+  font-family:var(--font-head);
+  font-size:0.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:1.5px;
+  padding:0.3rem 0.7rem;
+  background:rgba(230,57,70,0.15);
+  color:var(--accent);
+  border:1px solid rgba(230,57,70,0.3);
+  border-radius:2px;
+}
+.class-badge.advanced{background:rgba(255,107,53,0.15);color:var(--accent-2);border-color:rgba(255,107,53,0.3)}
+.class-badge.beginner{background:rgba(34,197,94,0.12);color:#4ade80;border-color:rgba(34,197,94,0.3)}
+
+/* ===== PARALLAX BAND ===== */
+.parallax-band{
+  position:relative;
+  height:60vh;min-height:480px;
+  background:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1920&q=85') center/cover no-repeat fixed;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.parallax-band::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg, rgba(10,10,10,0.85) 0%, rgba(230,57,70,0.45) 50%, rgba(10,10,10,0.85) 100%);
+}
+.parallax-content{
+  position:relative;z-index:2;text-align:center;
+  max-width:900px;padding:0 5%;
+}
+.parallax-tag{
+  display:inline-block;
+  font-family:var(--font-head);
+  font-size:0.9rem;font-weight:600;
+  color:var(--accent-2);
+  text-transform:uppercase;letter-spacing:5px;
+  margin-bottom:1.4rem;
+  position:relative;padding:0 3rem;
+}
+.parallax-tag::before,.parallax-tag::after{
+  content:"";position:absolute;top:50%;
+  width:2rem;height:2px;background:var(--accent-2);
+}
+.parallax-tag::before{left:0}
+.parallax-tag::after{right:0}
+.parallax-content h2{
+  font-size:clamp(2.2rem, 6vw, 5rem);
+  font-weight:700;line-height:0.95;
+  text-transform:uppercase;
+  margin-bottom:1.2rem;
+  text-shadow:0 4px 20px rgba(0,0,0,0.6);
+}
+.parallax-content p{
+  font-size:1.15rem;color:rgba(241,250,238,0.85);
+  max-width:620px;margin:0 auto 2rem;
+  line-height:1.7;
+}
+.parallax-content .btn{background:#fff;color:var(--bg)}
+.parallax-content .btn:hover{background:var(--accent);color:#fff;transform:translateY(-3px)}
+
+/* ===== TRAINERS ===== */
+.trainers{background:var(--bg-2)}
+.trainer-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.8rem;
+}
+.trainer-card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:transform 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+.trainer-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--accent);
+}
+.trainer-photo{
+  position:relative;
+  height:340px;overflow:hidden;
+  clip-path:polygon(0 0, 100% 8%, 100% 92%, 0 100%);
+  background:var(--bg-3);
+}
+.trainer-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  filter:grayscale(40%) contrast(1.05);
+  transition:transform 0.6s var(--ease), filter 0.6s var(--ease);
+}
+.trainer-card:hover .trainer-photo img{
+  transform:scale(1.1);
+  filter:grayscale(0%) contrast(1.1);
+}
+.trainer-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 40%, transparent 70%);
+  pointer-events:none;
+}
+.trainer-info{
+  padding:1.4rem 1.4rem 1.6rem;
+  text-align:center;
+  position:relative;
+}
+.trainer-info::before{
+  content:"";position:absolute;top:0;left:50%;
+  transform:translateX(-50%);
+  width:50px;height:3px;background:var(--accent);
+}
+.trainer-name{
+  font-family:var(--font-head);
+  font-size:1.3rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.5px;
+  margin-bottom:0.3rem;
+  color:var(--text);
+}
+.trainer-spec{
+  font-size:0.85rem;font-weight:500;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:1rem;
+}
+.trainer-social{
+  display:flex;gap:0.6rem;justify-content:center;
+}
+.trainer-social a{
+  width:36px;height:36px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  border-radius:2px;
+  color:var(--muted);
+  transition:all 0.3s var(--ease);
+}
+.trainer-social a:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+  transform:translateY(-2px);
+}
+.trainer-social svg{width:16px;height:16px}
+
+/* ===== PRICING ===== */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.6rem;
+  align-items:stretch;
+}
+.plan-card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:2.8rem 2rem 2.2rem;
+  display:flex;flex-direction:column;
+  transition:transform 0.4s var(--ease), border-color 0.4s var(--ease);
+  overflow:hidden;
+}
+.plan-card:hover{transform:translateY(-8px)}
+.plan-card.featured{
+  border:2px solid var(--accent);
+  background:linear-gradient(180deg, rgba(230,57,70,0.08) 0%, var(--card) 40%);
+  transform:scale(1.04);
+  z-index:2;
+}
+.plan-card.featured:hover{transform:scale(1.04) translateY(-8px)}
+.plan-badge{
+  position:absolute;top:0;left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;
+  font-family:var(--font-head);
+  font-size:0.75rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:2px;
+  padding:0.4rem 1.2rem;
+}
+.plan-name{
+  font-family:var(--font-head);
+  font-size:1.4rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:0.6rem;
+  color:var(--text);
+}
+.plan-price{
+  font-family:var(--font-head);
+  font-size:3.5rem;font-weight:700;
+  line-height:1;
+  color:var(--accent);
+  margin-bottom:0.3rem;
+  display:flex;align-items:baseline;gap:0.3rem;
+}
+.plan-price span{font-size:1rem;color:var(--muted);font-weight:400}
+.plan-period{
+  font-size:0.85rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:1.6rem;
+  font-family:var(--font-head);
+}
+.plan-desc{
+  font-size:0.9rem;color:var(--muted);
+  padding-bottom:1.6rem;
+  border-bottom:1px solid var(--line);
+  margin-bottom:1.6rem;
+  line-height:1.6;
+}
+.plan-features{
+  margin-bottom:2rem;
+  flex-grow:1;
+}
+.plan-features li{
+  font-size:0.95rem;
+  padding:0.6rem 0;
+  color:rgba(241,250,238,0.85);
+  display:flex;align-items:flex-start;gap:0.7rem;
+  border-bottom:1px dashed var(--line);
+}
+.plan-features li:last-child{border-bottom:none}
+.plan-features .check{
+  flex-shrink:0;
+  color:var(--accent);
+  font-weight:700;
+  width:18px;height:18px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(230,57,70,0.12);
+  border:1px solid rgba(230,57,70,0.3);
+  font-size:0.75rem;
+  margin-top:2px;
+}
+.plan-card .btn-primary{justify-content:center;width:100%}
+.plan-card .btn-outline{
+  justify-content:center;width:100%;
+  border-color:rgba(241,250,238,0.4);
+}
+
+/* ===== GALLERY (TRANSFORMATIONS) ===== */
+.gallery{background:var(--bg-2)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.4rem;
+}
+.gallery-item{
+  position:relative;
+  height:360px;overflow:hidden;
+  background:var(--card);
+  border:1px solid var(--line);
+  cursor:pointer;
+  transition:border-color 0.4s var(--ease);
+}
+.gallery-item:hover{border-color:var(--accent)}
+.gallery-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:grayscale(40%) contrast(1.05);
+  transition:transform 0.7s var(--ease), filter 0.5s var(--ease);
+}
+.gallery-item:hover img{transform:scale(1.08);filter:grayscale(0%) contrast(1.1)}
+.gallery-item::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 50%);
+}
+.gallery-tag{
+  position:absolute;top:1rem;left:1rem;z-index:2;
+  font-family:var(--font-head);
+  font-size:0.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:2px;
+  color:#fff;
+  background:rgba(230,57,70,0.85);
+  padding:0.35rem 0.8rem;
+}
+.gallery-caption{
+  position:absolute;left:1.2rem;bottom:1.2rem;z-index:2;
+  color:#fff;
+}
+.gallery-caption h4{
+  font-size:1.2rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:0.2rem;
+}
+.gallery-caption p{
+  font-size:0.85rem;color:rgba(255,255,255,0.75);
+  font-family:var(--font-head);
+  text-transform:uppercase;letter-spacing:1.5px;
+}
+.gallery-caption .weight{
+  display:inline-block;
+  color:var(--accent-2);
+  font-weight:700;
+  margin-top:0.3rem;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testi-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.8rem;
+}
+.testi-card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:2.4rem 1.8rem 1.8rem;
+  transition:transform 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+.testi-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+}
+.testi-quote{
+  position:absolute;top:-18px;left:1.8rem;
+  font-family:var(--font-head);
+  font-size:4rem;
+  color:var(--accent);
+  line-height:1;
+  font-weight:700;
+}
+.testi-stars{
+  display:flex;gap:2px;
+  color:var(--accent-2);
+  margin-bottom:1.2rem;
+  font-size:1.05rem;
+  letter-spacing:2px;
+}
+.testi-text{
+  font-size:0.98rem;line-height:1.7;
+  color:rgba(241,250,238,0.85);
+  margin-bottom:1.6rem;
+  font-style:italic;
+}
+.testi-author{
+  display:flex;align-items:center;gap:0.9rem;
+  padding-top:1.2rem;
+  border-top:1px solid var(--line);
+}
+.testi-avatar{
+  width:48px;height:48px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);
+  font-weight:700;font-size:1.1rem;
+  color:#fff;
+  flex-shrink:0;
+}
+.testi-name{
+  font-family:var(--font-head);
+  font-size:1rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:1px;
+  color:var(--text);
+  margin-bottom:0.1rem;
+}
+.testi-role{
+  font-size:0.78rem;
+  color:var(--muted);
+  text-transform:uppercase;letter-spacing:1.5px;
+}
+
+/* ===== CTA BAND ===== */
+.cta-band{
+  position:relative;
+  background:linear-gradient(135deg, var(--accent) 0%, #c1121f 50%, var(--accent-2) 100%);
+  padding:5rem 5%;
+  overflow:hidden;
+}
+.cta-band::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 30px, rgba(0,0,0,0.08) 30px 31px);
+  pointer-events:none;
+}
+.cta-grid{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:3rem;align-items:center;
+}
+.cta-text h2{
+  font-size:clamp(2.2rem, 5vw, 4rem);
+  font-weight:700;line-height:0.95;
+  text-transform:uppercase;
+  color:#fff;
+  margin-bottom:1.2rem;
+  text-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+.cta-text p{
+  color:rgba(255,255,255,0.9);
+  font-size:1.05rem;line-height:1.7;
+  margin-bottom:1.8rem;
+}
+.cta-info{
+  display:flex;flex-direction:column;gap:0.9rem;
+}
+.cta-info-row{
+  display:flex;align-items:center;gap:1rem;
+  color:#fff;
+}
+.cta-info-row .ico{
+  width:42px;height:42px;
+  background:rgba(0,0,0,0.2);
+  border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.cta-info-row .ico svg{width:18px;height:18px;stroke:#fff}
+.cta-info-row .lbl{
+  font-family:var(--font-head);
+  font-size:0.7rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:2px;
+  color:rgba(255,255,255,0.7);
+  display:block;
+}
+.cta-info-row .val{
+  font-family:var(--font-head);
+  font-size:1.1rem;font-weight:600;
+  color:#fff;
+}
+.cta-form{
+  background:rgba(10,10,10,0.4);
+  border:1px solid rgba(255,255,255,0.15);
+  padding:2rem;
+  backdrop-filter:blur(8px);
+}
+.cta-form h3{
+  font-size:1.3rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:2px;
+  color:#fff;
+  margin-bottom:0.4rem;
+}
+.cta-form p{
+  color:rgba(255,255,255,0.75);
+  font-size:0.88rem;
+  margin-bottom:1.4rem;
+}
+.form-group{margin-bottom:0.9rem}
+.form-group label{
+  display:block;
+  font-family:var(--font-head);
+  font-size:0.7rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:2px;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:0.3rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  background:rgba(0,0,0,0.4);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;
+  font-family:var(--font-body);
+  font-size:0.95rem;
+  padding:0.7rem 0.9rem;
+  border-radius:2px;
+  transition:border-color 0.25s, background 0.25s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:#fff;
+  background:rgba(0,0,0,0.55);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.btn-submit{
+  width:100%;
+  background:#0a0a0a;
+  color:#fff;
+  font-family:var(--font-head);
+  font-weight:600;font-size:1rem;
+  text-transform:uppercase;letter-spacing:2px;
+  padding:0.95rem 1.4rem;
+  border-radius:2px;
+  margin-top:0.4rem;
+  transition:background 0.25s, transform 0.25s;
+}
+.btn-submit:hover{background:#000;transform:translateY(-2px)}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:#050505;
+  padding:4.5rem 5% 2rem;
+  border-top:1px solid var(--line);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  gap:2.5rem;
+  margin-bottom:3rem;
+}
+.footer-col h5{
+  font-size:0.9rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:2px;
+  color:var(--text);
+  margin-bottom:1.4rem;
+  position:relative;padding-bottom:0.8rem;
+}
+.footer-col h5::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:35px;height:2px;background:var(--accent);
+}
+.footer-col p{
+  color:var(--muted);
+  font-size:0.92rem;line-height:1.7;
+  margin-bottom:1rem;
+}
+.footer-col ul li{margin-bottom:0.65rem}
+.footer-col ul a{
+  color:var(--muted);
+  font-size:0.92rem;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  transition:color 0.25s,padding 0.25s;
+}
+.footer-col ul a::before{
+  content:">";
+  color:var(--accent);
+  font-family:var(--font-head);
+  font-weight:700;
+  font-size:0.8rem;
+  transition:padding 0.25s;
+}
+.footer-col ul a:hover{color:var(--accent);padding-left:4px}
+.footer-col ul a:hover::before{padding-right:4px}
+.footer-logo{
+  font-family:var(--font-head);
+  font-size:1.6rem;font-weight:700;
+  color:var(--accent);
+  letter-spacing:3px;
+  margin-bottom:1rem;
+  display:inline-flex;align-items:center;gap:0.4rem;
+}
+.footer-logo::after{
+  content:"";width:7px;height:7px;background:var(--accent-2);
+  border-radius:50%;
+}
+.footer-social{
+  display:flex;gap:0.6rem;margin-top:1rem;
+}
+.footer-social a{
+  width:38px;height:38px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--line);
+  color:var(--muted);
+  transition:all 0.3s var(--ease);
+}
+.footer-social a:hover{
+  background:var(--accent);border-color:var(--accent);color:#fff;
+  transform:translateY(-3px);
+}
+.footer-social svg{width:16px;height:16px}
+.footer-contact-row{
+  display:flex;gap:0.7rem;align-items:flex-start;
+  margin-bottom:0.9rem;
+  font-size:0.9rem;color:var(--muted);
+}
+.footer-contact-row .ic{
+  color:var(--accent);
+  margin-top:3px;
+  flex-shrink:0;
+}
+.footer-contact-row svg{width:14px;height:14px}
+.footer-bottom{
+  padding-top:2rem;
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-bottom p{
+  font-size:0.85rem;color:var(--muted-2);
+  margin:0;
+}
+.footer-bottom .links a{
+  color:var(--muted-2);
+  font-size:0.85rem;
+  margin-left:1.5rem;
+  transition:color 0.25s;
+}
+.footer-bottom .links a:hover{color:var(--accent)}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s var(--ease), transform 0.9s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.9s var(--ease), transform 0.9s var(--ease)}
+.reveal-left.in{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.9s var(--ease), transform 0.9s var(--ease)}
+.reveal-right.in{opacity:1;transform:translateX(0)}
+.reveal-zoom{opacity:0;transform:scale(0.92);transition:opacity 0.9s var(--ease), transform 0.9s var(--ease)}
+.reveal-zoom.in{opacity:1;transform:scale(1)}
+.reveal[data-delay="1"]{transition-delay:0.1s}
+.reveal[data-delay="2"]{transition-delay:0.2s}
+.reveal[data-delay="3"]{transition-delay:0.3s}
+.reveal[data-delay="4"]{transition-delay:0.4s}
+.reveal[data-delay="5"]{transition-delay:0.5s}
+.reveal[data-delay="6"]{transition-delay:0.6s}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px){
+  .trainer-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-card:last-child{grid-column:1/-1;max-width:50%;margin:0 auto}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media (max-width: 900px){
+  .burger{display:flex}
+  .nav-links{
+    position:fixed;top:0;right:0;
+    height:100vh;width:280px;
+    background:rgba(10,10,10,0.98);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:5rem 2rem 2rem;
+    transform:translateX(100%);
+    transition:transform 0.4s var(--ease);
+    border-left:1px solid var(--line-2);
+    gap:1.5rem;
+  }
+  .nav-links.open{transform:translateX(0)}
+  .nav-cta{display:none}
+  .classes-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .plan-card.featured{transform:none;order:-1}
+  .plan-card.featured:hover{transform:translateY(-8px)}
+  .cta-grid{grid-template-columns:1fr;gap:2rem}
+  .parallax-band{background-attachment:scroll}
+  .hero-meta{display:none}
+  .gallery-grid{grid-template-columns:1fr}
+}
+@media (max-width: 600px){
+  .nav{padding:0.9rem 5%}
+  .nav.scrolled{padding:0.7rem 5%}
+  .section{padding:4rem 5%}
+  .stats{grid-template-columns:repeat(2,1fr);gap:1.5rem;padding:2.5rem 5%}
+  .stat-divider{display:none}
+  .classes-grid{grid-template-columns:1fr}
+  .trainer-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .testi-card:last-child{max-width:100%}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-bottom .links a{margin:0 0.7rem}
+  .gallery-item{height:280px}
+  .trainer-photo{height:300px}
+  .parallax-band{min-height:380px;height:50vh}
+}
+
+/* ===== UTIL ===== */
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0a0a0a}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent),var(--accent-2));border-radius:0}
 </style>
 </head>
 <body>
-<nav>
-  <div class="logo">IRONZONE</div>
-  <div class="nav-links">
-    <a href="#">Ana Sayfa</a><a href="#">Dersler</a><a href="#">Üyelik</a><a href="#">Eğitmenler</a><a href="#">İletişim</a>
+
+<!-- =================== NAVBAR =================== -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo">IRONZONE</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#program">Program</a></li>
+    <li><a href="#egitmenler">Egitmenler</a></li>
+    <li><a href="#uyelik">Uyelik</a></li>
+    <li><a href="#sonuclar">Sonuclar</a></li>
+    <li><a href="#iletisim">Iletisim</a></li>
+  </ul>
+  <a href="#iletisim" class="nav-cta">Hemen Basla</a>
+  <div class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
   </div>
-  <a href="#" class="btn-orange">Ücretsiz Deneme</a>
 </nav>
 
+<!-- =================== HERO =================== -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
+  <div class="hero-stripe"></div>
   <div class="hero-content">
-    <div class="hero-badge">İstanbul'un En İyi Fitness Merkezi</div>
-    <h1>Sınırlarını <span>Zorla.</span> Kendini Dönüştür.</h1>
-    <p>IronZone'da profesyonel eğitmenler, son teknoloji ekipmanlar ve motivasyon dolu ortamla hedeflerine ulaş.</p>
-    <a href="#" class="btn-orange">Hemen Başla</a>
-  </div>
-</section>
-
-<div class="stats">
-  <div><div class="stat-num">5.000+</div><div class="stat-label">Aktif Üye</div></div>
-  <div><div class="stat-num">50+</div><div class="stat-label">Haftalık Ders</div></div>
-  <div><div class="stat-num">20</div><div class="stat-label">Uzman Eğitmen</div></div>
-  <div><div class="stat-num">3</div><div class="stat-label">Şube</div></div>
-</div>
-
-<section class="section">
-  <div class="section-tag">Derslerimiz</div>
-  <div class="section-title">Popüler Antrenmanlar</div>
-  <div class="classes-grid">
-    <div class="class-card"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="CrossFit" class="class-img"><div class="class-overlay"></div><div class="class-info"><div class="class-name">CrossFit</div><div class="class-time">Her gün 07:00 — 20:00</div></div></div>
-    <div class="class-card"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Yoga" class="class-img"><div class="class-overlay"></div><div class="class-info"><div class="class-name">Yoga ve Meditasyon</div><div class="class-time">Sal / Per / Cmt 08:00</div></div></div>
-    <div class="class-card"><img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&q=80" alt="Boks" class="class-img"><div class="class-overlay"></div><div class="class-info"><div class="class-name">Boks ve Kickboks</div><div class="class-time">Pzt / Çar / Cum 18:00</div></div></div>
-    <div class="class-card"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Ağırlık" class="class-img"><div class="class-overlay"></div><div class="class-info"><div class="class-name">Ağırlık Antrenmanı</div><div class="class-time">Her gün 06:00 — 22:00</div></div></div>
-    <div class="class-card"><img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=600&q=80" alt="Pilates" class="class-img"><div class="class-overlay"></div><div class="class-info"><div class="class-name">Pilates</div><div class="class-time">Pzt / Çar / Cum 10:00</div></div></div>
-    <div class="class-card"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&q=80" alt="Spinning" class="class-img"><div class="class-overlay"></div><div class="class-info"><div class="class-name">Spinning</div><div class="class-time">Her gün 07:00 — 19:00</div></div></div>
-  </div>
-</section>
-
-<section class="section" style="background:rgba(20,20,20,0.5);">
-  <div class="section-tag">Üyelik</div>
-  <div class="section-title">Planlar ve Fiyatlar</div>
-  <div class="plans-grid">
-    <div class="plan-card">
-      <div class="plan-name">Başlangıç</div>
-      <div class="plan-price">499 TL<span>/ay</span></div>
-      <ul class="plan-features"><li>Temel ekipman erişimi</li><li>Grup dersleri (haftalık 3)</li><li>Soyunma odası</li><li>Mobil uygulama</li></ul>
-      <button class="btn-orange" style="width:100%;">Seç</button>
-    </div>
-    <div class="plan-card featured">
-      <div class="plan-badge">EN POPÜLER</div>
-      <div class="plan-name">Pro</div>
-      <div class="plan-price">849 TL<span>/ay</span></div>
-      <ul class="plan-features"><li>Tüm ekipman erişimi</li><li>Sınırsız grup dersleri</li><li>Aylık 2 PT seansı</li><li>Beslenme danışmanlığı</li><li>Havuz ve sauna</li></ul>
-      <button class="btn-orange" style="width:100%;">Seç</button>
-    </div>
-    <div class="plan-card">
-      <div class="plan-name">Elite</div>
-      <div class="plan-price">1.499 TL<span>/ay</span></div>
-      <ul class="plan-features"><li>Tüm Pro özellikler</li><li>Haftalık PT seansı</li><li>Özel program</li><li>Locker tahsisi</li><li>Misafir hakkı</li></ul>
-      <button class="btn-orange" style="width:100%;">Seç</button>
+    <span class="hero-eyebrow">Endustriyel Guc · Metal Teri</span>
+    <h1>
+      GUCUNU <span class="stroke">BUL.</span><br>
+      <span class="accent">SINIRLARI</span> <span class="accent-2">ZORLA.</span>
+    </h1>
+    <p class="hero-sub">
+      IRONZONE, terin, metalin ve kararliligin bulustugu yer. <strong>Profesyonel ekipman</strong>,
+      <strong>uzman egitmenler</strong> ve <strong>seni bir sonraki seviyeye tasiyacak</strong> bir program.
+      Burada hikayeler degil, rekorlar yazilir.
+    </p>
+    <div class="hero-buttons">
+      <a href="#uyelik" class="btn btn-primary">Uye Ol &rarr;</a>
+      <a href="#program" class="btn btn-outline">Programi Incele</a>
     </div>
   </div>
+  <div class="hero-meta">
+    <span>Su an acik</span>
+    <strong id="liveClock">00:00:00</strong>
+    <span>7/24 Erisim</span>
+  </div>
+  <div class="scroll-cue">Asagi Kaydir</div>
 </section>
 
-<section class="trainers">
-  <div class="section-tag">Eğitmenlerimiz</div>
-  <div class="section-title">Uzman Kadro</div>
-  <div class="trainer-grid">
-    <div class="trainer-card"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&q=80" alt="Eğitmen" class="trainer-img"><div class="trainer-info"><div class="trainer-name">Emre Yılmaz</div><div class="trainer-spec">CrossFit Uzmanı</div></div></div>
-    <div class="trainer-card"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Eğitmen" class="trainer-img"><div class="trainer-info"><div class="trainer-name">Selin Kaya</div><div class="trainer-spec">Yoga ve Pilates</div></div></div>
-    <div class="trainer-card"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80" alt="Eğitmen" class="trainer-img"><div class="trainer-info"><div class="trainer-name">Murat Demir</div><div class="trainer-spec">Boks Koçu</div></div></div>
-    <div class="trainer-card"><img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=400&q=80" alt="Eğitmen" class="trainer-img"><div class="trainer-info"><div class="trainer-name">Aylin Arslan</div><div class="trainer-spec">Beslenme ve Fitness</div></div></div>
+<!-- =================== STATS STRIP =================== -->
+<section class="stats" id="stats">
+  <div class="stat">
+    <span class="stat-num" data-target="10000" data-suffix="+">0</span>
+    <span class="stat-label">Aktif Uye</span>
+    <span class="stat-divider"></span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="50" data-suffix="+">0</span>
+    <span class="stat-label">Uzman Egitmen</span>
+    <span class="stat-divider"></span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="200" data-suffix="+">0</span>
+    <span class="stat-label">Ekipman &amp; Makine</span>
+    <span class="stat-divider"></span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">7/24</span>
+    <span class="stat-label">Acik Salon</span>
   </div>
 </section>
 
-<footer>
-  <div class="footer-logo">IRONZONE</div>
-  <p>Daha güçlü, daha sağlıklı, daha sen.</p>
-  <p style="margin-top:0.8rem;">info@ironzone.com.tr | +90 212 555 0200 | İstanbul</p>
-  <p style="margin-top:1rem;font-size:0.8rem;">© 2025 IronZone Fitness. Tüm hakları saklıdır.</p>
+<!-- =================== PROGRAM =================== -->
+<section class="section" id="program">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag reveal">Antrenman Programlari</span>
+      <h2 class="section-title reveal" data-delay="1">Metal <span class="accent">Ustune</span> Kursun</h2>
+      <p class="section-sub reveal" data-delay="2">
+        Hedefine uygun alti farkli program. Ister hipertrofi, ister crossfit, ister zihin-beden dengesi.
+        Her seviyeye uygun antrenman, uzman egitmen esliginde.
+      </p>
+    </div>
+
+    <div class="classes-grid">
+      <!-- Card 1 - Hipertrofi -->
+      <div class="class-card reveal" data-delay="1">
+        <div class="class-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 12h2m14 0h2M5 12a2 2 0 100-4 2 2 0 000 4zm0 0v4m14-4a2 2 0 100-4 2 2 0 000 4zm0 0v4M5 16a2 2 0 100 4 2 2 0 000-4zm14 0a2 2 0 100 4 2 2 0 000-4zM8 12h8"/></svg>
+        </div>
+        <h3 class="class-title">Hipertrofi</h3>
+        <p class="class-desc">Kas kutlesini artirmak ve sekillendirmek icin yuksek hacimli setler, kontrollu tempo ve dogru beslenme destegi.</p>
+        <div class="class-meta">
+          <span class="class-time">Pzt · Car · Cum</span>
+          <span class="class-badge">Orta</span>
+        </div>
+      </div>
+
+      <!-- Card 2 - Guc -->
+      <div class="class-card reveal" data-delay="2">
+        <div class="class-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="class-title">Guc</h3>
+        <p class="class-desc">Maksimum kuvvet icin compound hareketler, agirlik progresyonu ve dogru teknik. Squat, deadlift, bench.</p>
+        <div class="class-meta">
+          <span class="class-time">Sal · Per</span>
+          <span class="class-badge advanced">Ileri</span>
+        </div>
+      </div>
+
+      <!-- Card 3 - CrossFit -->
+      <div class="class-card reveal" data-delay="3">
+        <div class="class-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+        </div>
+        <h3 class="class-title">CrossFit</h3>
+        <p class="class-desc">Fonksiyonel fitness, dayaniklilik ve gucu bir arada gelistiren yogun, surekli degisen grup dersleri.</p>
+        <div class="class-meta">
+          <span class="class-time">Her Gun</span>
+          <span class="class-badge advanced">Ileri</span>
+        </div>
+      </div>
+
+      <!-- Card 4 - Kardiyo -->
+      <div class="class-card reveal" data-delay="4">
+        <div class="class-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h3 class="class-title">Kardiyo</h3>
+        <p class="class-desc">Yag yakimi, kalp sagligi ve dayaniklilik icin yuksek yoğunluklu interval antrenmanlari ve uzun mesafe kosu.</p>
+        <div class="class-meta">
+          <span class="class-time">Pzt · Car · Cum</span>
+          <span class="class-badge beginner">Baslangic</span>
+        </div>
+      </div>
+
+      <!-- Card 5 - Boks -->
+      <div class="class-card reveal" data-delay="5">
+        <div class="class-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <h3 class="class-title">Boks</h3>
+        <p class="class-desc">Teknik, hiz ve guc. Torba, eldiven ve ring calismalari ile hem ozyetkinlik hem fiziksel gelisim.</p>
+        <div class="class-meta">
+          <span class="class-time">Sal · Per · Cmt</span>
+          <span class="class-badge">Orta</span>
+        </div>
+      </div>
+
+      <!-- Card 6 - Yoga -->
+      <div class="class-card reveal" data-delay="6">
+        <div class="class-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h3 class="class-title">Yoga &amp; Mobilite</h3>
+        <p class="class-desc">Esneklik, denge ve zihinsel odaklanma. Guclu antrenmanlarin vazgecilmez tamamlayicisi.</p>
+        <div class="class-meta">
+          <span class="class-time">Pzt · Cum</span>
+          <span class="class-badge beginner">Baslangic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PARALLAX BAND =================== -->
+<section class="parallax-band">
+  <div class="parallax-content">
+    <span class="parallax-tag">Ekipman Paralax</span>
+    <h2>200+ Makine.<br>Sinirsiz Guc.</h2>
+    <p>Hammer Strength, Life Fitness, Rogue Fitness — dunyanin en iyi markalarinin ekipmanlari, IRONZONE'da. Her kas, her hareket, her seviye icin ozel bolumler.</p>
+    <a href="#program" class="btn">Salonu Kesfet &rarr;</a>
+  </div>
+</section>
+
+<!-- =================== EGITMENLER =================== -->
+<section class="section trainers" id="egitmenler">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag reveal">Uzman Kadromuz</span>
+      <h2 class="section-title reveal" data-delay="1">Seni <span class="accent">Zorlayacak</span> Egitmenler</h2>
+      <p class="section-sub reveal" data-delay="2">
+        Her biri kendi alaninda kanitlanmis, uluslararasi sertifikalara sahip profesyoneller.
+        Seni taniyan, planlayan, takip eden ve sinirlarini zorlayan bir ekip.
+      </p>
+    </div>
+
+    <div class="trainer-grid">
+      <!-- Trainer 1 -->
+      <div class="trainer-card reveal" data-delay="1">
+        <div class="trainer-photo">
+          <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80" alt="Egitmen Cenk Aydin">
+        </div>
+        <div class="trainer-info">
+          <h3 class="trainer-name">Cenk Aydin</h3>
+          <p class="trainer-spec">Guc &amp; Hipertrofi</p>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 2 -->
+      <div class="trainer-card reveal" data-delay="2">
+        <div class="trainer-photo">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="Egitmen Selin Kaya">
+        </div>
+        <div class="trainer-info">
+          <h3 class="trainer-name">Selin Kaya</h3>
+          <p class="trainer-spec">Yoga &amp; Pilates</p>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 3 -->
+      <div class="trainer-card reveal" data-delay="3">
+        <div class="trainer-photo">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Egitmen Murat Demir">
+        </div>
+        <div class="trainer-info">
+          <h3 class="trainer-name">Murat Demir</h3>
+          <p class="trainer-spec">CrossFit &amp; Boks</p>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 4 -->
+      <div class="trainer-card reveal" data-delay="4">
+        <div class="trainer-photo">
+          <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80" alt="Egitmen Ayse Yilmaz">
+        </div>
+        <div class="trainer-info">
+          <h3 class="trainer-name">Ayse Yilmaz</h3>
+          <p class="trainer-spec">Kardiyo &amp; Beslenme</p>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PRICING =================== -->
+<section class="section" id="uyelik">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag reveal">Uyelik Planlari</span>
+      <h2 class="section-title reveal" data-delay="1">Sana Uygun <span class="accent">Plan</span></h2>
+      <p class="section-sub reveal" data-delay="2">
+        Ister yeni basla, ister yillaradir bu isin icinde ol. Uc farkli plan, uc farkli hedef.
+        Diledigin zaman yukselt, diledigin zaman durdur.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Plan 1 - Baslangic -->
+      <div class="plan-card reveal" data-delay="1">
+        <h3 class="plan-name">Baslangic</h3>
+        <div class="plan-price">599 <span>TL/ay</span></div>
+        <div class="plan-period">Aylik Odeme</div>
+        <p class="plan-desc">Spor salonu ile yeni tanisanlar, temel antrenman yapmak isteyenler icin ideal giris paketi.</p>
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> Temel ekipman erisimi</li>
+          <li><span class="check">&#10003;</span> Haftada 3 giris hakki</li>
+          <li><span class="check">&#10003;</span> Soyunma odasi &amp; dus</li>
+          <li><span class="check">&#10003;</span> Ucretsiz Wi-Fi</li>
+          <li><span class="check">&#10003;</span> Aylik vucut analizi</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-outline">Hemen Basla</a>
+      </div>
+
+      <!-- Plan 2 - Pro (Featured) -->
+      <div class="plan-card featured reveal" data-delay="2">
+        <span class="plan-badge">EN POPULER</span>
+        <h3 class="plan-name">Pro</h3>
+        <div class="plan-price">999 <span>TL/ay</span></div>
+        <div class="plan-period">Aylik Odeme</div>
+        <p class="plan-desc">Ciddi antrenman yapan, sonuclarina odaklanan herkes icin en cok tercih edilen paket.</p>
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> Tum ekipman erisimi (7/24)</li>
+          <li><span class="check">&#10003;</span> Sinirsiz giris</li>
+          <li><span class="check">&#10003;</span> 2 PT seansi / ay (birebir)</li>
+          <li><span class="check">&#10003;</span> Beslenme danismanligi</li>
+          <li><span class="check">&#10003;</span> Grup derslerine ucretsiz katilim</li>
+          <li><span class="check">&#10003;</span> Havuz &amp; sauna erisimi</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-primary">Hemen Basla</a>
+      </div>
+
+      <!-- Plan 3 - Elite -->
+      <div class="plan-card reveal" data-delay="3">
+        <h3 class="plan-name">Elite</h3>
+        <div class="plan-price">1999 <span>TL/ay</span></div>
+        <div class="plan-period">Aylik Odeme</div>
+        <p class="plan-desc">Sinirlarini zorlamak isteyen profesyoneller ve yarismacilar icin VIP deneyim.</p>
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> Pro paketteki her sey</li>
+          <li><span class="check">&#10003;</span> Haftada 5 PT seansi</li>
+          <li><span class="check">&#10003;</span> Ozel program &amp; makro takip</li>
+          <li><span class="check">&#10003;</span> Locker odasi &amp; VIP soyunma</li>
+          <li><span class="check">&#10003;</span> Masaj &amp; fizyoterapi</li>
+          <li><span class="check">&#10003;</span> Misafir pass (ayda 2)</li>
+        </ul>
+        <a href="#iletisim" class="btn btn-outline">Hemen Basla</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== GALLERY (DONUSUM) =================== -->
+<section class="section gallery" id="sonuclar">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag reveal">Donusum Galerisi</span>
+      <h2 class="section-title reveal" data-delay="1">Gercek Uye, <span class="accent">Gercek Sonuc</span></h2>
+      <p class="section-sub reveal" data-delay="2">
+        12 haftalik programlarimizla hayatini degistiren uyelerimizin hikayeleri.
+        Fotoğraflar onayli, sonuclar kalici.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal-zoom" data-delay="1">
+        <span class="gallery-tag">12 Hafta</span>
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=80" alt="Donusum 1">
+        <div class="gallery-caption">
+          <h4>Emre K.</h4>
+          <p>Yag Orani &darr; %38 &rarr; %18</p>
+          <span class="weight">-14 kg</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal-zoom" data-delay="2">
+        <span class="gallery-tag">16 Hafta</span>
+        <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=900&q=80" alt="Donusum 2">
+        <div class="gallery-caption">
+          <h4>Burcu T.</h4>
+          <p>Kas Kutlesi &uarr; +6.2 kg</p>
+          <span class="weight">Recomposition</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal-zoom" data-delay="3">
+        <span class="gallery-tag">8 Hafta</span>
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=80" alt="Donusum 3">
+        <div class="gallery-caption">
+          <h4>Hakan S.</h4>
+          <p>Deadlift &uarr; 100kg &rarr; 180kg</p>
+          <span class="weight">+80 kg PR</span>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal-zoom" data-delay="4">
+        <span class="gallery-tag">24 Hafta</span>
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=900&q=80" alt="Donusum 4">
+        <div class="gallery-caption">
+          <h4>Deniz A.</h4>
+          <p>Vucut Yag &darr; %42 &rarr; %22</p>
+          <span class="weight">-22 kg</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== TESTIMONIALS =================== -->
+<section class="section" id="yorumlar">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag reveal">Uye Yorumlari</span>
+      <h2 class="section-title reveal" data-delay="1">Bize <span class="accent">Guvenenler</span> Ne Diyor</h2>
+      <p class="section-sub reveal" data-delay="2">
+        IRONZONE ailemizin deneyimleri. 5 yildiz uzerinden degerlendirilen gercek uye yorumlari.
+      </p>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card reveal" data-delay="1">
+        <div class="testi-quote">&ldquo;</div>
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">
+          IRONZONE'a katilmadan once 3 farkli salona gittim. Burada farkli olan sey ekipman degil, kultur.
+          Egitmenler seni taniyor, programini takip ediyor, gercekten ilgileniyor.
+          6 ayda 14 kilo verdim, hiçbir zaman bu kadar tutarli olmamistim.
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">EK</div>
+          <div>
+            <div class="testi-name">Emre Kaya</div>
+            <div class="testi-role">Pro Uye · 8 Ay</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" data-delay="2">
+        <div class="testi-quote">&ldquo;</div>
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">
+          CrossFit dersleri bu sehirdeki en iyisi. Antrenorlerin bilgisi, motivasyonu ve sabri super.
+          Yarismaya hazirlanmak icin 5 ay boyunca burada calistim, ilk yarismamda 3. oldum.
+          Salon atmosferi endustriyel, tam aradigim sey.
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">SO</div>
+          <div>
+            <div class="testi-name">Selin Ozdemir</div>
+            <div class="testi-role">Elite Uye · 1 Yil</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" data-delay="3">
+        <div class="testi-quote">&ldquo;</div>
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">
+          40 yasindan sonra spora baslamak istedim, cesaret edemiyordum. IRONZONE'daki egitmenler
+          sayesinde 4 aydir aksatmadan geliyorum. Ne yogurtu ne kahkahayi esirgediler.
+          Saglik degerlerim dustu, enerjim yukseldi. Kesinlikle tavsiye ederim.
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">MA</div>
+          <div>
+            <div class="testi-name">Murat Arslan</div>
+            <div class="testi-role">Baslangic Uyesi · 4 Ay</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CTA BAND =================== -->
+<section class="cta-band" id="iletisim">
+  <div class="cta-grid">
+    <div class="cta-text">
+      <span class="hero-eyebrow" style="background:rgba(0,0,0,0.2);border-color:rgba(255,255,255,0.3);color:#fff">Son Adim</span>
+      <h2>ILK ADIMI AT.<br>BUGUN BASLA.</h2>
+      <p>
+        Karar senin. Tereddut etme, basla. IRONZONE'da seni bekleyen bir ekipman,
+        bir program ve bir hedef var. Sadece o kapidan gecip iceri girmen yeterli.
+      </p>
+      <div class="cta-info">
+        <div class="cta-info-row">
+          <span class="ico">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.49 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11 11 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.49a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg>
+          </span>
+          <div>
+            <span class="lbl">Telefon</span>
+            <span class="val">+90 212 555 02 00</span>
+          </div>
+        </div>
+        <div class="cta-info-row">
+          <span class="ico">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.66 16.66L13.41 20.9a2 2 0 01-2.82 0l-4.25-4.24a8 8 0 1111.32 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </span>
+          <div>
+            <span class="lbl">Adres</span>
+            <span class="val">Bagdat Cad. No:142, Kadikoy / Istanbul</span>
+          </div>
+        </div>
+        <div class="cta-info-row">
+          <span class="ico">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
+          <div>
+            <span class="lbl">Calisma Saatleri</span>
+            <span class="val">Hafta Ici 06:00 - 24:00 · Hafta Sonu 07:00 - 22:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('.btn-submit').textContent='TESEKKURLER · YAKINDA DONUS YAPILACAK'; this.querySelector('.btn-submit').style.background='#16a34a';">
+      <h3>Ucretsiz Deneme</h3>
+      <p>3 gun boyunca salonumuzu ucretsiz dene. Formu doldur, seni arayalim.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ad Soyad</label>
+          <input type="text" placeholder="Adiniz Soyadiniz" required>
+        </div>
+        <div class="form-group">
+          <label>Telefon</label>
+          <input type="tel" placeholder="05XX XXX XX XX" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>E-Posta</label>
+        <input type="email" placeholder="ornek@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Ilgilendigin Program</label>
+        <select required>
+          <option value="">Seciniz</option>
+          <option>Hipertrofi</option>
+          <option>Guc Antrenmani</option>
+          <option>CrossFit</option>
+          <option>Kardiyo</option>
+          <option>Boks</option>
+          <option>Yoga &amp; Pilates</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mesajin (Opsiyonel)</label>
+        <textarea rows="3" placeholder="Hedeflerinden bahset..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Hemen Kayit Ol</button>
+    </form>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="#" class="footer-logo">IRONZONE</a>
+      <p>Endustriyel gucun, modern bilimin ve kararliligin bulustugu nokta. Iki bin on yediden beri sektordeyiz, degismek degil gelismek icin variz.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Hizli Linkler</h5>
+      <ul>
+        <li><a href="#program">Programlar</a></li>
+        <li><a href="#egitmenler">Egitmenler</a></li>
+        <li><a href="#uyelik">Uyelik</a></li>
+        <li><a href="#sonuclar">Donusumler</a></li>
+        <li><a href="#yorumlar">Yorumlar</a></li>
+        <li><a href="#iletisim">Iletisim</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Programlar</h5>
+      <ul>
+        <li><a href="#program">Hipertrofi</a></li>
+        <li><a href="#program">Guc Antrenmani</a></li>
+        <li><a href="#program">CrossFit</a></li>
+        <li><a href="#program">Kardiyo</a></li>
+        <li><a href="#program">Boks</a></li>
+        <li><a href="#program">Yoga &amp; Pilates</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Iletisim</h5>
+      <div class="footer-contact-row">
+        <span class="ic">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.66 16.66L13.41 20.9a2 2 0 01-2.82 0l-4.25-4.24a8 8 0 1111.32 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </span>
+        <span>Bagdat Cad. No:142, Kadikoy / Istanbul, Turkiye</span>
+      </div>
+      <div class="footer-contact-row">
+        <span class="ic">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.49 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11 11 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.49a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg>
+        </span>
+        <span>+90 212 555 02 00</span>
+      </div>
+      <div class="footer-contact-row">
+        <span class="ic">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </span>
+        <span>info@ironzone.com.tr</span>
+      </div>
+      <div class="footer-contact-row">
+        <span class="ic">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </span>
+        <span>H.I 06:00 - 24:00<br>H.S 07:00 - 22:00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 IRONZONE Fitness. Tum haklari saklidir. Demir gibi calis, demir gibi kal.</p>
+    <div class="links">
+      <a href="#">Gizlilik Politikasi</a>
+      <a href="#">Kullanim Kosullari</a>
+      <a href="#">KVKK</a>
+    </div>
+  </div>
 </footer>
 
-<section style="padding:5rem 5%;background:rgba(20,20,20,0.5);">
-  <div style="color:#f97316;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:0.6rem;">Hesap Makinesi</div>
-  <div style="font-size:2rem;font-weight:900;text-transform:uppercase;margin-bottom:2.5rem;">BMI Hesapla</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:900px;">
-    <div style="background:#141414;border-radius:1rem;padding:2rem;border:1px solid rgba(249,115,22,0.15);">
-      <div style="margin-bottom:1rem;"><label style="display:block;font-size:0.72rem;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Boy (cm)</label><input id="bmiH" type="number" value="175" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(249,115,22,0.2);border-radius:0.4rem;padding:0.75rem 1rem;color:#f1f5f9;font-size:1rem;outline:none;"></div>
-      <div style="margin-bottom:1.5rem;"><label style="display:block;font-size:0.72rem;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Kilo (kg)</label><input id="bmiW" type="number" value="75" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(249,115,22,0.2);border-radius:0.4rem;padding:0.75rem 1rem;color:#f1f5f9;font-size:1rem;outline:none;"></div>
-      <button onclick="calcBMI()" style="width:100%;background:#f97316;color:#fff;border:none;padding:0.9rem;border-radius:0.4rem;font-weight:700;font-size:1rem;cursor:pointer;">Hesapla</button>
-    </div>
-    <div id="bmiResult" style="background:#141414;border-radius:1rem;padding:2rem;border:1px solid rgba(249,115,22,0.15);text-align:center;">
-      <div style="font-size:0.85rem;color:#64748b;margin-bottom:1rem;">BMI Değeriniz</div>
-      <div id="bmiNum" style="font-size:4rem;font-weight:900;color:#f97316;">--</div>
-      <div id="bmiCat" style="font-size:1.1rem;font-weight:700;margin:0.8rem 0;color:#f1f5f9;">Değer girin</div>
-      <div id="bmiNote" style="font-size:0.82rem;color:#64748b;line-height:1.6;margin-top:0.8rem;"></div>
-    </div>
-  </div>
-</section>
+<!-- =================== JAVASCRIPT =================== -->
 <script>
-function calcBMI(){
-  const h=+document.getElementById('bmiH').value/100;
-  const w=+document.getElementById('bmiW').value;
-  if(!h||!w)return;
-  const bmi=(w/(h*h)).toFixed(1);
-  document.getElementById('bmiNum').textContent=bmi;
-  let cat,note,col;
-  if(bmi<18.5){cat='Zayıf';note='Kilonuzu artırmanız önerilir. Beslenme uzmanımıza danışın.';col='#60a5fa';}
-  else if(bmi<25){cat='Normal';note='Harika! Sağlıklı kilo aralığındasınız. Egzersiz rutininizi sürdürün.';col='#4ade80';}
-  else if(bmi<30){cat='Fazla Kilolu';note='Hedefli antrenman ve beslenme planı ile ideal kilonuza ulaşabilirsiniz.';col='#f59e0b';}
-  else{cat='Obez';note='Uzman eğitmenimizle kişisel program oluşturmanızı öneririz.';col='#ef4444';}
-  document.getElementById('bmiCat').textContent=cat;
-  document.getElementById('bmiCat').style.color=col;
-  document.getElementById('bmiNum').style.color=col;
-  document.getElementById('bmiNote').textContent=note;
-}
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
-</script></body>
+(function(){
+  'use strict';
+
+  // --- Navbar scroll effect ---
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if(window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // --- Mobile menu toggle ---
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // --- Live clock ---
+  const clockEl = document.getElementById('liveClock');
+  function updateClock(){
+    const d = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    clockEl.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // --- Counter animation ---
+  const counters = document.querySelectorAll('.stat-num[data-target]');
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1800;
+    const start = performance.now();
+    const startVal = 0;
+    const step = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.floor(startVal + (target - startVal) * eased);
+      el.textContent = value.toLocaleString('tr-TR') + suffix;
+      if(t < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString('tr-TR') + suffix;
+    };
+    requestAnimationFrame(step);
+  };
+  let countersDone = false;
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !countersDone){
+        countersDone = true;
+        counters.forEach(animateCounter);
+      }
+    });
+  }, {threshold:0.4});
+  const statsSection = document.getElementById('stats');
+  if(statsSection) counterObserver.observe(statsSection);
+
+  // --- Scroll reveal ---
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if(href.length > 1){
+        const target = document.querySelector(href);
+        if(target){
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + window.scrollY - 70;
+          window.scrollTo({top, behavior:'smooth'});
+        }
+      }
+    });
+  });
+
+  // --- Subtle parallax on hero stripe ---
+  const heroStripe = document.querySelector('.hero-stripe');
+  if(heroStripe){
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if(y < window.innerHeight){
+        heroStripe.style.transform = `translateY(${y * 0.3}px)`;
+      }
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
 </html>
